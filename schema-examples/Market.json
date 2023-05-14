@@ -1,0 +1,45 @@
+{
+    "symbol": "string",
+    "exports": [
+        {
+            "symbol": "PRECIOUS_STONES",
+            "name": "string",
+            "description": "string"
+        }
+    ],
+    "imports": [
+        {
+            "symbol": "PRECIOUS_STONES",
+            "name": "string",
+            "description": "string"
+        }
+    ],
+    "exchange": [
+        {
+            "symbol": "PRECIOUS_STONES",
+            "name": "string",
+            "description": "string"
+        }
+    ],
+    "transactions": [
+        {
+            "waypointSymbol": "string",
+            "shipSymbol": "string",
+            "tradeSymbol": "string",
+            "type": "PURCHASE",
+            "units": 1,
+            "pricePerUnit": 1,
+            "totalPrice": 1,
+            "timestamp": "2019-08-24T14:15:22Z"
+        }
+    ],
+    "tradeGoods": [
+        {
+            "symbol": "string",
+            "tradeVolume": 1,
+            "supply": "SCARCE",
+            "purchasePrice": 0,
+            "sellPrice": 0
+        }
+    ]
+}

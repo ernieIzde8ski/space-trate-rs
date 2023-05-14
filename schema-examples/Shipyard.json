@@ -1,0 +1,18 @@
+{
+    "symbol": "string",
+    "shipTypes": [
+        {
+            "type": "SHIP_PROBE"
+        }
+    ],
+    "transactions": [
+        {
+            "waypointSymbol": "string",
+            "shipSymbol": "string",
+            "price": 1,
+            "agentSymbol": "string",
+            "timestamp": "2019-08-24T14:15:22Z"
+        }
+    ],
+    "ships": []
+}

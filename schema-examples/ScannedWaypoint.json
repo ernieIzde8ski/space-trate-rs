@@ -1,0 +1,27 @@
+{
+    "symbol": "string",
+    "type": "PLANET",
+    "systemSymbol": "string",
+    "x": 0,
+    "y": 0,
+    "orbitals": [
+        {
+            "symbol": "string"
+        }
+    ],
+    "faction": {
+        "symbol": "string"
+    },
+    "traits": [
+        {
+            "symbol": "UNCHARTED",
+            "name": "string",
+            "description": "string"
+        }
+    ],
+    "chart": {
+        "waypointSymbol": "string",
+        "submittedBy": "string",
+        "submittedOn": "2019-08-24T14:15:22Z"
+    }
+}
