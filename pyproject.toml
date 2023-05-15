@@ -1,0 +1,6 @@
+# for formatting python-scripts with black
+
+[tool.black]
+line-length = 90
+target-version = ["py311"]
+skip-magic-trailing-comma = true
