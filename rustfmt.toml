@@ -1,3 +1,7 @@
 ignore = [
     "src/tests/schema.rs"
 ]
+
+brace_style = "PreferSameLine"
+fn_single_line = true
+where_single_line = true
