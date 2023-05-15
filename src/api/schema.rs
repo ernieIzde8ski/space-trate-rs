@@ -2,18 +2,14 @@ use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 
 fn parse_date_time<'de, D>(deserializer: D) -> Result<DateTime<Utc>, D::Error>
-where
-    D: serde::Deserializer<'de>,
-{
+where D: serde::Deserializer<'de> {
     let s = String::deserialize(deserializer)?;
     DateTime::parse_from_rfc3339(&s)
         .map_err(|e| serde::de::Error::custom(format!("{}", e)))
         .map(|dt| dt.into())
 }
 fn parse_optional_date_time<'de, D>(deserializer: D) -> Result<Option<DateTime<Utc>>, D::Error>
-where
-    D: serde::Deserializer<'de>,
-{
+where D: serde::Deserializer<'de> {
     let s: Option<String> = Option::deserialize(deserializer)?;
     match s {
         Some(s) => DateTime::parse_from_rfc3339(&s)
@@ -278,6 +274,7 @@ pub struct ScannedSystem {
     kind: SystemType,
     x: i32,
     y: i32,
+    distance: i32,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -899,8 +896,8 @@ pub enum WaypointType {
 /* types not declared by the documentation go here */
 
 #[derive(Serialize, Deserialize, Debug)]
-pub struct Symbolic {
-    symbol: String,
+pub struct Symbolic<T = String> {
+    pub symbol: T,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -928,3 +925,27 @@ pub enum Deposits {
     UraniteOre,
     MeritiumOre,
 }
+
+#[derive(Serialize, Deserialize, Debug)]
+#[serde(rename_all = "camelCase")]
+pub struct Produce {
+    trade_symbol: Option<String>,
+    units: Option<i32>,
+}
+
+// #[derive(Serialize, Deserialize, Debug)]
+// pub struct NavHolder {
+//     nav: ShipNav,
+// }
+
+#[macro_export]
+macro_rules! field_holder {
+    ($name:ident, $field:ident, $_type:ty) => {
+        #[derive(Serialize, Deserialize, Debug)]
+        pub struct $name {
+            $field: $_type,
+        }
+    };
+}
+
+field_holder!(NavHolder, nav, ShipNav);

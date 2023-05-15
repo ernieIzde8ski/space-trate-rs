@@ -1,7 +1,6 @@
 use reqwest;
-pub mod responses;
-pub mod schemas;
-use responses::{ApiResult, RegistryResponse};
+pub mod api;
+use api::results::ApiResult;
 
 #[derive(Debug)]
 pub struct SpaceTraderAgent {
@@ -18,9 +17,7 @@ impl SpaceTraderAgent {
         }
     }
 
-    pub fn token(&self) -> &str {
-        &self.token
-    }
+    pub fn token(&self) -> &str { &self.token }
 
     #[tokio::main]
     pub async fn register(
